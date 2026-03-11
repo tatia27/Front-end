@@ -37,7 +37,7 @@ export const AuthPage = () => {
   const { setUser } = useContext(UserContext);
 
   // * Api
-  const { data } = useQuery(IS_AUTH, {
+  const { data, refetch } = useQuery(IS_AUTH, {
     context: {
       headers: createAuthHeaders(),
     },
@@ -55,45 +55,64 @@ export const AuthPage = () => {
 
   const { handleSubmit, register } = formMethods;
 
-  const load = async () => {
-    const token = localStorage.getItem("token");
+  // console.log(data);
+  // const load = async () => {
+  //   const token = localStorage.getItem("token");
 
-    if (token) {
-      if (setUser && data.isAuth.id) {
-        const { role, id } = data.isAuth;
-        setUser({ role, id });
-      }
-    }
-  };
+  //   console.log(token);
+
+  //   console.log(data.isAuth.id);
+
+  //   if (token) {
+  //     if (setUser && data.isAuth.id) {
+  //       const { role, id } = data.isAuth;
+
+  //       console.log(role);
+
+  //       setUser({ role, id });
+  //     }
+  //   }
+  // };
+
+  // const onSubmit = async (data: Inputs) => {
+  //   const { email, password } = data;
+
+  //   // try {
+  //   const result = await login({
+  //     variables: {
+  //       email: email,
+  //       password: password,
+  //     },
+  //   });
+
+  //   const { login: loginData } = result.data;
+
+  //   if (loginData) {
+  //     localStorage.setItem("token", loginData.token);
+  //   }
+  //   load();
+  //   nav("/");
+  // };
 
   const onSubmit = async (data: Inputs) => {
     const { email, password } = data;
 
-    // try {
     const result = await login({
-      variables: {
-        email: email,
-        password: password,
-      },
+      variables: { email, password },
     });
 
     const { login: loginData } = result.data;
 
-    if (loginData) {
+    if (loginData && setUser) {
       localStorage.setItem("token", loginData.token);
-    }
-    await load();
-    nav("/");
 
-    // }
-    // } catch () {
-    // const axiosError = error as AxiosError;
-    // if (axiosError.response?.status === 401) {
-    //   toast.error("Неверный пароль");
-    // } else {
-    //   toast.error("Неверный логин или пароль");
-    // }
-    // }
+      const { data } = await refetch();
+      const { role, id } = data.isAuth;
+
+      setUser({ role, id });
+
+      nav("/");
+    }
   };
 
   return (

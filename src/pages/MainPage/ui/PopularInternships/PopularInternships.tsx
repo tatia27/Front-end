@@ -5,10 +5,12 @@ import { Internship } from "../Internship/Internship";
 import type { Internships } from "../../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
 import s from "./PopularInternships.module.scss";
 
+import { LoadingSpinner } from "../../../../shared/ui/LoadingSpinner/LoadingSpinner";
+
 export const PopularInternships = () => {
   const { data, loading } = useQuery(GET_POPULAR_INTERNSHIPS);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingSpinner />;
 
   const internships = data.getPopularInternships;
 

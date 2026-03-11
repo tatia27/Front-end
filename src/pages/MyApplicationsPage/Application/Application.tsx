@@ -1,30 +1,25 @@
 import { useNavigate } from "react-router-dom";
+import type { Internships } from "../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
+import { ROUTER_PATH } from "../../../app/router/path";
+import { CustomButton } from "../../../ui/_buttons/ContainedButton/ContainedButton";
+import { InternshipInfo } from "../../../app/entities/internshipInfo/InternshipInfo";
 import FavoriteSVG from "../../../shared/assets/favorite.svg?react";
 import BannerSVG from "../../../shared/assets/banner.svg?react";
 import LocationSVG from "../../../shared/assets/location.svg?react";
 import s from "./Application.module.scss";
-import type { Internships } from "../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
-import { ROUTER_PATH } from "../../../app/router/path";
-import { useQuery } from "@apollo/client";
-import { GET_INTERNSHIP } from "../../../app/graphql/queries/internshipApi";
-import { CustomButton } from "../../../ui/_buttons/ContainedButton/ContainedButton";
 
 export const Application = (props: Internships) => {
   const {
     id, //
+    title,
+    typeOfEmployment,
+    salary,
+    schedule,
+    company,
   } = props;
 
   const nav = useNavigate();
 
-  const { data } = useQuery(GET_INTERNSHIP, {
-    variables: {
-      id: id,
-    },
-  });
-
-  const internship = data.getInternship;
-
-  console.log(internship);
   const navigateToInternship = () =>
     nav(`${ROUTER_PATH.internships.page}/${id}`);
 
@@ -33,7 +28,7 @@ export const Application = (props: Internships) => {
       <div className={s.internship__top}>
         <div className={s.internship__title}>
           <BannerSVG />
-          {/* <h5>{company}</h5> */}
+          <h5>{company}</h5>
         </div>
 
         <div className={s.internship__info}>
@@ -45,24 +40,18 @@ export const Application = (props: Internships) => {
         </div>
       </div>
 
-      {/* <p className={s.internship__title}>{title}</p> */}
+      <p className={s.internship__title}>{title}</p>
 
       <div className={s.internship__location}>
         <LocationSVG />
         <p>Таганрог</p>
       </div>
 
-      <div className={s.internship__info}>
-        {/* <p className={s.internship__info__item}>
-          {salary !== null ? "Оплачиваемая" : "Неоплачиваемая"}
-        </p>
-        <p className={s.internship__info__item}>
-          {typeOfEmployment === "Full" ? "Полный день" : "Неполный день"}
-        </p>
-        <p className={s.internship__info__item}>
-          {schedule === "Office" ? "В офисе" : "Удалённо"}
-        </p> */}
-      </div>
+      <InternshipInfo
+        salary={salary}
+        typeOfEmployment={typeOfEmployment}
+        schedule={schedule}
+      />
     </div>
   );
 };

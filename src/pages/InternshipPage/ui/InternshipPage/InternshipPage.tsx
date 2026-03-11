@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { GET_INTERNSHIP } from "../../../../app/graphql/queries/internshipApi";
 import { useQuery } from "@apollo/client";
 import { InternshipInfo } from "../../../../app/entities/internshipInfo/InternshipInfo";
+import { LoadingSpinner } from "../../../../shared/ui/LoadingSpinner/LoadingSpinner";
 import s from "./InternshipPage.module.scss";
 
 export const InternshipPage = () => {
@@ -13,7 +14,7 @@ export const InternshipPage = () => {
     },
   });
 
-  if (loading || !data) return null;
+  if (loading || !data) return <LoadingSpinner />;
 
   const internship = data.getInternship;
 

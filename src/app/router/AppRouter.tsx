@@ -11,7 +11,7 @@ import { AuthPage } from "../../pages/AuthPage/ui/AuthPage/AuthPage";
 import { InternPage } from "../../pages/InternPage/ui/InternPage/InternPage";
 import { CompanyPage } from "../../pages/CompanyPage/ui/CompanyPage/CompanyPage";
 import { CreateInternshipPage } from "../../pages/CreateInternshipPage/ui/CreateInternshipPage/CreateInternshipPage";
-import { MyApplicationsPage } from "../../pages/MyApplicationsPage/MyApplicationsPage";
+import { MyApplicationsPage } from "../../pages/MyApplicationsPage/MyApplicationsPage/MyApplicationsPage";
 import { useAuth } from "../hooks/useAuth";
 import { FavoritesContextProvider } from "../context/favoritesContext/favoritesContextProvider";
 import { InternshipPage } from "../../pages/InternshipPage/ui/InternshipPage/InternshipPage";

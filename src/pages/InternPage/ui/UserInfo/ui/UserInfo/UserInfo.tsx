@@ -4,6 +4,7 @@ import { Favorites } from "../../../Favorites/Favorites";
 import { Skills } from "../Skills/Skills";
 import { useQuery } from "@apollo/client";
 import { GET_INTERN } from "../../../../../../app/graphql/queries/internApi";
+import { LoadingSpinner } from "../../../../../../shared/ui/LoadingSpinner/LoadingSpinner";
 import s from "./UserInfo.module.scss";
 
 export const UserInfo = () => {
@@ -17,7 +18,7 @@ export const UserInfo = () => {
     },
   });
 
-  if (loading || !data) return null;
+  if (loading || !data) return <LoadingSpinner />;
 
   const userInfo = data.getIntern;
   const { firstName, middleName, lastName, cv, email } = userInfo;

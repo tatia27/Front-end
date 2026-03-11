@@ -1,9 +1,27 @@
 import { gql } from "@apollo/client";
 
 export const GET_MY_INTERNSHIPS = gql`
-  query getInternshipsForIntern($internId: ID!) {
+  query GetInternshipsForIntern($internId: ID!) {
     getInternshipsForIntern(internId: $internId) {
       id
+      title
+      typeOfEmployment
+      salary
+      schedule
+      company
+    }
+  }
+`;
+
+export const GET_INTERNSHIPS_FOR_COMPANY = gql`
+  query getInternshipsForCompany($id: ID!) {
+    getInternshipsForCompany(id: $id) {
+      id
+      title
+      typeOfEmployment
+      salary
+      schedule
+      company
     }
   }
 `;

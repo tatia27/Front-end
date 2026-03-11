@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router";
 import { Logo } from "../Logo/Logo";
 import { ROUTER_PATH } from "../../../../app/router/path";
 import { useLogout } from "../hooks/useLogout";
-import ProfileSVG from "../../../../shared//assets//profile.svg?react";
+import ProfileSVG from "../../../../shared/assets/profile.svg?react";
 import s from "../styles/Header.module.scss";
 
 export const HeaderCompany = () => {

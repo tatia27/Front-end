@@ -8,19 +8,23 @@ export const useAuth = () => {
   const { user, setUser, setAuthLoading } = useContext(UserContext);
 
   // * Api
-  const { data } = useQuery(IS_AUTH, {
+  const { data, refetch } = useQuery(IS_AUTH, {
     context: {
       headers: createAuthHeaders(),
     },
   });
 
-  console.log(user);
+  // console.log(data);
+  // console.log(user);
 
   useEffect(() => {
     async function load() {
       const token = localStorage.getItem("token");
 
       if (token) {
+        const { data } = await refetch();
+        // const { role, id } = data.isAuth;
+
         if (setUser && data && setAuthLoading) {
           const { role, id } = data.isAuth;
 
@@ -34,5 +38,5 @@ export const useAuth = () => {
       }
     }
     load();
-  }, [data, setAuthLoading, setUser]);
+  }, [data, refetch, setAuthLoading, setUser]);
 };
