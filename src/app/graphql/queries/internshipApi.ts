@@ -81,3 +81,35 @@ export const GET_INTERNSHIP = gql`
     }
   }
 `;
+
+export const CREATE_INTERNSHIP = gql`
+  mutation CreateInternship(
+    $title: String!
+    $company: String!
+    $focusOfInternship: String!
+    $schedule: String!
+    $typeOfEmployment: String!
+    $durationOfInternship: String!
+    $salary: Float
+    $skills: String!
+    $conditions: String!
+    $companyId: ID
+  ) {
+    createInternship(
+      title: $title
+      company: $company
+      focusOfInternship: $focusOfInternship
+      schedule: $schedule
+      typeOfEmployment: $typeOfEmployment
+      durationOfInternship: $durationOfInternship
+      salary: $salary
+      skills: $skills
+      conditions: $conditions
+      companyId: $companyId
+    ) {
+      id
+      title
+      company
+    }
+  }
+`;
