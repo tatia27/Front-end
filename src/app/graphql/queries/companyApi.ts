@@ -10,3 +10,23 @@ export const GET_COMPANY = gql`
     }
   }
 `;
+
+export const UPDATE_COMPANY = gql`
+  mutation updateCompany(
+    $id: ID!
+    $name: String
+    $description: String
+    $photo: String
+  ) {
+    updateCompany(
+      name: $name
+      description: $description
+      id: $id
+      photo: $photo
+    ) {
+      id
+      name
+      description
+    }
+  }
+`;

@@ -18,6 +18,7 @@ export const ROUTER_PATH = {
     page: "/internships",
     addInternship: "/add",
   },
+  company: { page: "/company", update: "/update" },
   departments: {
     page: "/departments",
     singleDepartment: "/single_department",

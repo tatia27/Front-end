@@ -2,7 +2,8 @@
 
 .internship {
   @include mixins.card;
-
+  border-radius: 30px;
+  cursor: pointer;
   padding: 20px 33px;
 
   &__top {

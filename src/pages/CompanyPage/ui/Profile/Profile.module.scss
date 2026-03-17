@@ -1,4 +1,6 @@
 .wrapper {
   display: grid;
+  justify-self: start;
+  align-self: start;
   gap: 20px;
 }

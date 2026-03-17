@@ -1,0 +1,17 @@
+.container {
+  margin: 64px 100px;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.wrapper {
+  display: grid;
+  gap: 25px;
+  padding: 32px;
+  border-radius: 15px;
+  border: 1px solid #35373b;
+}

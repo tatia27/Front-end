@@ -22,6 +22,7 @@ export const GET_INTERNSHIPS_FOR_COMPANY = gql`
       salary
       schedule
       company
+      companyId
     }
   }
 `;
@@ -49,6 +50,7 @@ export const GET_FILTERED_INTERNSHIPS = gql`
         salary
         typeOfEmployment
         schedule
+        companyId
       }
       numberOfPages
     }

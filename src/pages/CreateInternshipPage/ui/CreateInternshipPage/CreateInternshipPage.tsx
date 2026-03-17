@@ -10,7 +10,6 @@ import {
   MenuItem,
   Select,
   TextField,
-  type SelectChangeEvent,
 } from "@mui/material";
 import { CustomButton } from "../../../../ui/_buttons/ContainedButton/ContainedButton";
 import { useMutation } from "@apollo/client";
@@ -29,7 +28,7 @@ interface Inputs {
   company: string;
   focusOfInternship: string;
   durationOfInternship: string;
-  salary: number | null;
+  salary?: number | null;
   skills: string;
   conditions: string;
 }
@@ -46,8 +45,13 @@ const schema = yup.object().shape({
     .required("Обязательное поле"),
   durationOfInternship: yup.string().required("Обязательное поле"),
   focusOfInternship: yup.string().required("Обязательное поле"),
-  salary: yup.required("Обязательное поле"),
   skills: yup.string().required("Обязательное поле"),
+  salary: yup
+    .number()
+    .nullable()
+    .notRequired()
+    .transform((value, originalValue) => (originalValue === "" ? null : value))
+    .min(0, "Salary cannot be negative"),
   conditions: yup.string().required("Обязательное поле"),
 });
 
@@ -123,6 +127,7 @@ export const CreateInternshipPage = () => {
         nav(`/company/profile`);
       }
     } catch (error) {
+      console.log(error);
       toast.error("Стажировка не создана");
     }
   };

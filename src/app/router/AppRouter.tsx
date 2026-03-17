@@ -16,6 +16,7 @@ import { useAuth } from "../hooks/useAuth";
 import { FavoritesContextProvider } from "../context/favoritesContext/favoritesContextProvider";
 import { InternshipPage } from "../../pages/InternshipPage/ui/InternshipPage/InternshipPage";
 import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
+import { UpdateCompany } from "../../pages/UpdateCompany/UpdateCompany";
 
 export const AppRouter = () => {
   const { renderHeader } = useHeader();
@@ -64,6 +65,7 @@ export const AppRouter = () => {
           }
         />
         <Route path="/company" element={<CompanyPage />} />
+        <Route path="/company/update" element={<UpdateCompany />} />
       </Routes>
 
       {renderFooter()}

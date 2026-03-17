@@ -7,7 +7,8 @@ import s from "./Profile.module.scss";
 export const Profile = () => {
   const nav = useNavigate();
 
-  const navigateToResume = () => nav(ROUTER_PATH.login.page);
+  const navigateToResume = () =>
+    nav(ROUTER_PATH.company.page + ROUTER_PATH.company.update);
 
   return (
     <div className={s.wrapper}>

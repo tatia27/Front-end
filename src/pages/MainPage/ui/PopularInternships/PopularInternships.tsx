@@ -3,9 +3,8 @@ import { GET_POPULAR_INTERNSHIPS } from "../../../../app/graphql/queries/interns
 import { CustomButton } from "../../../../ui/_buttons/ContainedButton/ContainedButton";
 import { Internship } from "../Internship/Internship";
 import type { Internships } from "../../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
-import s from "./PopularInternships.module.scss";
-
 import { LoadingSpinner } from "../../../../shared/ui/LoadingSpinner/LoadingSpinner";
+import s from "./PopularInternships.module.scss";
 
 export const PopularInternships = () => {
   const { data, loading } = useQuery(GET_POPULAR_INTERNSHIPS);
@@ -16,8 +15,6 @@ export const PopularInternships = () => {
 
   return (
     <div>
-      {/* <Tabss /> */}
-      <div>Табы</div>
       <div className={s.info}>
         <p className={s.info__title}>Популярные стажировки</p>
         <p className={s.info__addition}>Специально для вас</p>
