@@ -1,7 +1,25 @@
+import { TextField } from "@mui/material";
 import { CustomButton } from "../../../../ui/_buttons/ContainedButton/ContainedButton";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useContext } from "react";
+import { ROUTER_PATH } from "../../../../app/router/path";
 import s from "./CompanySearch.module.scss";
 
 export const CompanySearch = () => {
+  const nav = useNavigate();
+
+  const { user } = useContext(UserContext);
+  const isCompany = user?.role === "company";
+
+  const navigateToCreateInternship = () => {
+    if (isCompany) {
+      nav(ROUTER_PATH.internships.addInternship);
+    } else {
+      nav(ROUTER_PATH.login.page);
+    }
+  };
+
   return (
     <>
       <div className={s.wrapper}>
@@ -16,10 +34,26 @@ export const CompanySearch = () => {
           variant="contained"
           color="button"
           size="large"
-          type="submit"
+          onClick={navigateToCreateInternship}
         >
           Разместить вакансию
         </CustomButton>
+      </div>
+      <div className={s.search}>
+        <p className={s.main__title}>
+          Скажите, кого и где ищете — <br /> покажем кандидатов
+        </p>
+
+        <div className={s.info}>
+          <TextField
+            id="outlined-basic"
+            label="Профессия или должность"
+            variant="outlined"
+          />
+          <CustomButton variant="contained" color="button" size="large">
+            Найти
+          </CustomButton>
+        </div>
       </div>
     </>
   );
