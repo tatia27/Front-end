@@ -21,3 +21,9 @@ export const GET_INTERN = gql`
     }
   }
 `;
+
+export const GET_PARTICIPANTS_OF_INTERNSHIP = gql`
+  query participantsOfInternship($id: ID!) {
+    participantsOfInternship(id: $id)
+  }
+`;

@@ -1,0 +1,17 @@
+@use "../../../styles/mixins.module";
+
+.title {
+  font-size: 20px;
+}
+.card {
+  @include mixins.card;
+  width: fit-content;
+  padding: 1.5rem;
+  border-radius: 30px;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}

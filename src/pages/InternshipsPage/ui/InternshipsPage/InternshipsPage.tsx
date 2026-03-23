@@ -20,6 +20,7 @@ export interface Internships {
   conditions: string;
   isActive: boolean;
   companyId: string;
+  tags: string[];
   onClick: () => void;
 }
 

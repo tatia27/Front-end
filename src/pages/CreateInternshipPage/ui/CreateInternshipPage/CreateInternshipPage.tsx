@@ -124,7 +124,7 @@ export const CreateInternshipPage = () => {
           },
         });
 
-        nav(`/company/profile`);
+        nav(`/company`);
       }
     } catch (error) {
       console.log(error);

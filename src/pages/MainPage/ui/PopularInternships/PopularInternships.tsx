@@ -15,9 +15,9 @@ export const PopularInternships = () => {
   // * Api
   const { data, loading } = useQuery(GET_POPULAR_INTERNSHIPS);
 
-  const internships = data.getPopularInternships;
-
   if (loading) return <LoadingSpinner />;
+
+  const internships = data.getPopularInternships;
 
   return (
     <div>

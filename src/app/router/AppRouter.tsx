@@ -15,8 +15,11 @@ import { MyApplicationsPage } from "../../pages/MyApplicationsPage/MyApplication
 import { useAuth } from "../hooks/useAuth";
 import { FavoritesContextProvider } from "../context/favoritesContext/favoritesContextProvider";
 import { InternshipPage } from "../../pages/InternshipPage/ui/InternshipPage/InternshipPage";
-import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
 import { UpdateCompany } from "../../pages/UpdateCompany/UpdateCompany";
+import { UpdateIntern } from "../../pages/UpdateIntern/UpdateIntern";
+import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
+import { Participants } from "../../pages/Participants/Participants";
+import { CompanyContextProvider } from "../context/companyContext/companyContextProvider";
 
 export const AppRouter = () => {
   const { renderHeader } = useHeader();
@@ -52,10 +55,25 @@ export const AppRouter = () => {
         <Route path="/register/company" element={<RegisterCompanyPage />} />
         // * Internships
         <Route path="/internships" element={<InternshipsPage />} />
-        <Route path="/internships/:id" element={<InternshipPage />} />
+        <Route
+          path="/internships/:id"
+          element={
+            <CompanyContextProvider>
+              <InternshipPage />
+            </CompanyContextProvider>
+          }
+        />
+        <Route
+          path="/internships/:id/participants"
+          element={
+            <FavoritesContextProvider>
+              <Participants />
+            </FavoritesContextProvider>
+          }
+        />
         <Route path="/add" element={<CreateInternshipPage />} />
         <Route path="/my" element={<MyApplicationsPage />} />
-        // * Profile
+        // * Intern
         <Route
           path="/intern"
           element={
@@ -64,7 +82,16 @@ export const AppRouter = () => {
             </FavoritesContextProvider>
           }
         />
-        <Route path="/company" element={<CompanyPage />} />
+        <Route path="/intern/update" element={<UpdateIntern />} />
+        // * Company
+        <Route
+          path="/company"
+          element={
+            <CompanyContextProvider>
+              <CompanyPage />
+            </CompanyContextProvider>
+          }
+        />
         <Route path="/company/update" element={<UpdateCompany />} />
       </Routes>
 

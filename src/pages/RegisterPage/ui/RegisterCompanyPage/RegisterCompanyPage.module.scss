@@ -1,9 +1,7 @@
 @use "../../../../styles/mixins.module";
 
 .container {
-  // @include mixins.container;
-  display: flex;
-  justify-content: center;
+  @include mixins.wrapper;
 }
 
 .wrapper {
