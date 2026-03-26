@@ -1,0 +1,9 @@
+.item {
+  color: white;
+  cursor: pointer;
+
+  &-active {
+    border-radius: 30px;
+    border: 1px solid black;
+  }
+}

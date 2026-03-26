@@ -17,9 +17,10 @@ import { FavoritesContextProvider } from "../context/favoritesContext/favoritesC
 import { InternshipPage } from "../../pages/InternshipPage/ui/InternshipPage/InternshipPage";
 import { UpdateCompany } from "../../pages/UpdateCompany/UpdateCompany";
 import { UpdateIntern } from "../../pages/UpdateIntern/UpdateIntern";
-import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
 import { Participants } from "../../pages/Participants/Participants";
 import { CompanyContextProvider } from "../context/companyContext/companyContextProvider";
+import { AdminPage } from "../../pages/_admin/AdminPage/ui/AdminPage/AdminPage";
+import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
 
 export const AppRouter = () => {
   const { renderHeader } = useHeader();
@@ -93,6 +94,11 @@ export const AppRouter = () => {
           }
         />
         <Route path="/company/update" element={<UpdateCompany />} />
+        // * Admin
+        <Route path="/review" element={<AdminPage />} />
+        <Route path="/admin-internships" element={<></>} />
+        <Route path="/admin-companies" element={<></>} />
+        <Route path="/admin-interns" element={<></>} />
       </Routes>
 
       {renderFooter()}

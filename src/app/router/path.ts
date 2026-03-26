@@ -2,6 +2,13 @@ export const ROUTER_PATH = {
   main: {
     page: "/",
   },
+  admin: {
+    page: "/admin",
+    review: "/review",
+    internships: "/admin-internships",
+    companies: "/admin-companies",
+    interns: "/admin-interns",
+  },
   login: {
     page: "login",
   },

@@ -16,7 +16,7 @@ export const Participant = ({ id }: { id: string }) => {
   if (loading || !data) return <LoadingSpinner />;
 
   const userInfo = data.getIntern;
-  const { firstName, middleName, lastName, cv, email } = userInfo;
+  const { firstName, middleName, lastName } = userInfo;
 
   return (
     <div className={s.card}>
