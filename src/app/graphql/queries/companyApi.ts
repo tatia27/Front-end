@@ -11,6 +11,15 @@ export const GET_COMPANY = gql`
   }
 `;
 
+export const GET_COMPANIES = gql`
+  query companies {
+    companies {
+      id
+      name
+    }
+  }
+`;
+
 export const UPDATE_COMPANY = gql`
   mutation updateCompany(
     $id: ID!
@@ -27,6 +36,15 @@ export const UPDATE_COMPANY = gql`
       id
       name
       description
+    }
+  }
+`;
+
+export const DELETE_COMPANY = gql`
+  mutation ($id: ID!) {
+    deleteCompany(id: $id) {
+      id
+      name
     }
   }
 `;

@@ -21,6 +21,8 @@ import { Participants } from "../../pages/Participants/Participants";
 import { CompanyContextProvider } from "../context/companyContext/companyContextProvider";
 import { AdminPage } from "../../pages/_admin/AdminPage/ui/AdminPage/AdminPage";
 import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
+import { AdminCompaniesPage } from "../../pages/_admin/AdminCompaniespage/ui/AdminCompaniesPage/AdminCompaniesPage";
+import { AdminInternsPage } from "../../pages/_admin/AdminInternsPage/ui/AdminInternsPage/AdminInternsPage";
 
 export const AppRouter = () => {
   const { renderHeader } = useHeader();
@@ -96,9 +98,17 @@ export const AppRouter = () => {
         <Route path="/company/update" element={<UpdateCompany />} />
         // * Admin
         <Route path="/review" element={<AdminPage />} />
-        <Route path="/admin-internships" element={<></>} />
-        <Route path="/admin-companies" element={<></>} />
-        <Route path="/admin-interns" element={<></>} />
+        <Route path="/admin-internships" element={<InternshipsPage />} />
+        <Route path="/admin-companies" element={<AdminCompaniesPage />} />
+        <Route
+          path="/admin-companies/:id"
+          element={
+            <CompanyContextProvider>
+              <CompanyPage />
+            </CompanyContextProvider>
+          }
+        />
+        <Route path="/admin-interns" element={<AdminInternsPage />} />
       </Routes>
 
       {renderFooter()}
