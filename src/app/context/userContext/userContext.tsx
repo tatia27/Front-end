@@ -1,4 +1,9 @@
-import { createContext, type Dispatch, type SetStateAction } from "react";
+import {
+  createContext,
+  useContext,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 
 export interface User {
   role: string;
@@ -6,10 +11,20 @@ export interface User {
 }
 
 interface IContext {
-  user?: User | null;
-  setUser?: Dispatch<SetStateAction<User | null>>;
-  authLoading?: boolean;
-  setAuthLoading?: Dispatch<SetStateAction<boolean | null>>;
+  user: User | null;
+  setUser: Dispatch<SetStateAction<User | null>>;
+  authLoading: boolean | null;
+  setAuthLoading: Dispatch<SetStateAction<boolean | null>>;
 }
 
-export const UserContext = createContext<IContext>({});
+export const UserContext = createContext<IContext | undefined>(undefined);
+
+export const useUser = () => {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error("useUser must be used within UserProvider");
+  }
+
+  return context;
+};

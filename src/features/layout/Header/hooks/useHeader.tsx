@@ -1,11 +1,12 @@
-import { useContext } from "react";
 import { Header } from "../Header/Header";
 import { HeaderCompany } from "../HeaderCompany/HeaderCompany";
 import { HeaderIntern } from "../HeaderIntern/HeaderIntern";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../app/context/userContext/userContext";
 
 export const useHeader = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
+
+  console.log("HEADER RENDER", user);
 
   const renderHeader = () => {
     if (user?.role === "intern") {

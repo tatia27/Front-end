@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Footer } from "../Footer/Footer";
 import { FooterCompany } from "../FooterCompany/FooterCompany";
 import { FooterIntern } from "../FooterIntern/FooterIntern";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../app/context/userContext/userContext";
 
 export const useFooter = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
 
   const renderFooter = () => {
     if (user?.role === "intern") {

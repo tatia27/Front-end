@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { client } from "../../../../apolloClient";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import { useNavigate } from "react-router-dom";
 
 export const useLogout = () => {
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useUser();
   const nav = useNavigate();
 
   const logout = () => {
@@ -11,6 +11,7 @@ export const useLogout = () => {
     if (setUser) {
       setUser(null);
     }
+    client.resetStore();
     nav("/");
   };
 
