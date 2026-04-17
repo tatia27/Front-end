@@ -1,14 +1,13 @@
 import { useQuery } from "@apollo/client";
-import { useContext } from "react";
-import { UserContext } from "../../../app/context/userContext/userContext";
+import { useUser } from "../../../app/context/userContext/userContext";
 import { GET_MY_INTERNSHIPS } from "../../../app/graphql/queries/internshipApi";
 import { LoadingSpinner } from "../../../shared/ui/LoadingSpinner/LoadingSpinner";
-import type { Internships } from "../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
 import { Application } from "../Application/Application";
+import type { Internships } from "../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
 import s from "./MyApplicationsPage.module.scss";
 
 export const MyApplicationsPage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
 
   const internId = user?.id;
 

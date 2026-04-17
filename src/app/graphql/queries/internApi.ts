@@ -47,3 +47,28 @@ export const DELETE_INTERN = gql`
     }
   }
 `;
+
+export const CREATE_INTERN = gql`
+  mutation createIntern(
+    $firstName: String!
+    $middleName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+    $description: String
+  ) {
+    createIntern(
+      firstName: $firstName
+      middleName: $middleName
+      lastName: $lastName
+      email: $email
+      password: $password
+      description: $description
+    ) {
+      id
+      firstName
+      email
+      role
+    }
+  }
+`;

@@ -8,7 +8,7 @@ import s from "../styles/Header.module.scss";
 export const HeaderIntern = () => {
   const nav = useNavigate();
 
-  const { logout } = useLogout();
+  const { logoutApps } = useLogout();
 
   const navigateToProfile = () => nav(ROUTER_PATH.profile.intern);
 
@@ -43,7 +43,7 @@ export const HeaderIntern = () => {
               ? `${s.items__link} ${s.items__link_active}`
               : s.items__link
           }
-          onClick={logout}
+          onClick={logoutApps}
         >
           Выйти
         </NavLink>

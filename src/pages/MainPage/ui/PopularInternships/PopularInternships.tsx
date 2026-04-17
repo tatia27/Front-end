@@ -4,12 +4,11 @@ import { CustomButton } from "../../../../ui/_buttons/ContainedButton/ContainedB
 import { Internship } from "../Internship/Internship";
 import type { Internships } from "../../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
 import { LoadingSpinner } from "../../../../shared/ui/LoadingSpinner/LoadingSpinner";
-import { useContext } from "react";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import s from "./PopularInternships.module.scss";
 
 export const PopularInternships = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
   const isIntern = user?.role === "intern";
 
   // * Api

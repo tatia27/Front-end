@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -20,7 +20,7 @@ import {
   WORK_SCHEDULE,
 } from "../../consts/consts";
 import { FormProvider, useForm } from "react-hook-form";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import s from "./CreateInternshipPage.module.scss";
 
 interface Inputs {
@@ -46,18 +46,13 @@ const schema = yup.object().shape({
   durationOfInternship: yup.string().required("Обязательное поле"),
   focusOfInternship: yup.string().required("Обязательное поле"),
   skills: yup.string().required("Обязательное поле"),
-  salary: yup
-    .number()
-    .nullable()
-    .notRequired()
-    .transform((value, originalValue) => (originalValue === "" ? null : value))
-    .min(0, "Salary cannot be negative"),
   conditions: yup.string().required("Обязательное поле"),
 });
 
 export const CreateInternshipPage = () => {
   const nav = useNavigate();
-  const { user } = useContext(UserContext);
+
+  const { user } = useUser();
 
   // * Checkbox
   const [typeOfEmployment, setTypeOfEmployment] = useState("");

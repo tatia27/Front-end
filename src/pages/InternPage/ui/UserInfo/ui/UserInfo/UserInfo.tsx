@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { UserContext } from "../../../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../../../app/context/userContext/userContext";
 import { Favorites } from "../../../Favorites/Favorites";
 import { Skills } from "../Skills/Skills";
 import { useQuery } from "@apollo/client";
@@ -8,7 +7,7 @@ import { LoadingSpinner } from "../../../../../../shared/ui/LoadingSpinner/Loadi
 import s from "./UserInfo.module.scss";
 
 export const UserInfo = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
   const userId = user?.id || "";
 
   // * Api

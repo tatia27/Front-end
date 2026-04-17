@@ -6,13 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { LOGIN } from "../../../../app/graphql/queries/authApi";
 import { useMutation } from "@apollo/client";
-// import { toast } from "react-toastify";
-// import { useContext } from "react";
-import {
-  // UserContext,
-  useUser,
-} from "../../../../app/context/userContext/userContext";
-// import { createAuthHeaders } from "../../../../apolloClient";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import s from "./AuthPage.module.scss";
 
 interface Inputs {

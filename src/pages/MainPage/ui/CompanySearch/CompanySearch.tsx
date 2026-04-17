@@ -1,15 +1,15 @@
 import { TextField } from "@mui/material";
 import { CustomButton } from "../../../../ui/_buttons/ContainedButton/ContainedButton";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../../../app/context/userContext/userContext";
-import { useContext } from "react";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import { ROUTER_PATH } from "../../../../app/router/path";
 import s from "./CompanySearch.module.scss";
 
 export const CompanySearch = () => {
   const nav = useNavigate();
 
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
+
   const isCompany = user?.role === "company";
 
   const navigateToCreateInternship = () => {

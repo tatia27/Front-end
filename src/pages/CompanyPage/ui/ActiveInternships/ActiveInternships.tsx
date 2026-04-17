@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import { useQuery } from "@apollo/client";
 import { LoadingSpinner } from "../../../../shared/ui/LoadingSpinner/LoadingSpinner";
 import { GET_INTERNSHIPS_FOR_COMPANY } from "../../../../app/graphql/queries/internshipApi";
@@ -8,7 +7,7 @@ import type { Internships } from "../../../InternshipsPage/ui/InternshipsPage/In
 import s from "./ActiveInternships.module.scss";
 
 export const ActiveInternships = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
 
   const companyId = user?.id;
 

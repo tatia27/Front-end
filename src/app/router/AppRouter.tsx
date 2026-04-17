@@ -28,6 +28,13 @@ export const AppRouter = () => {
   const { renderHeader } = useHeader();
   const { renderFooter } = useFooter();
 
+  // const { setUser } = useUser();
+
+  // const client = useApolloClient();
+
+  // const { logoutApps } = useLogout();
+  // logoutApps();
+
   useAuth();
 
   return (

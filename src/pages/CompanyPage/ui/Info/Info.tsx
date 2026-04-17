@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { UserContext } from "../../../../app/context/userContext/userContext";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import { useQuery } from "@apollo/client";
 import { GET_COMPANY } from "../../../../app/graphql/queries/companyApi";
 import { LoadingSpinner } from "../../../../shared/ui/LoadingSpinner/LoadingSpinner";
 import s from "./Info.module.scss";
 
 export const Info = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
 
   const companyId = user?.id;
 

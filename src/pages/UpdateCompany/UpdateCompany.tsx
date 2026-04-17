@@ -4,8 +4,7 @@ import { CustomButton } from "../../ui/_buttons/ContainedButton/ContainedButton"
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { useContext } from "react";
-import { UserContext } from "../../app/context/userContext/userContext";
+import { useUser } from "../../app/context/userContext/userContext";
 import { UPDATE_COMPANY } from "../../app/graphql/queries/companyApi";
 import s from "./UpdateCompany.module.scss";
 
@@ -16,7 +15,7 @@ interface Inputs {
 
 export const UpdateCompany = () => {
   const nav = useNavigate();
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
 
   const userId = user?.id;
 

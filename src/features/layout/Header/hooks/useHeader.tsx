@@ -6,10 +6,8 @@ import { useUser } from "../../../../app/context/userContext/userContext";
 export const useHeader = () => {
   const { user } = useUser();
 
-  console.log("HEADER RENDER", user);
-
   const renderHeader = () => {
-    if (user?.role === "intern") {
+    if (user?.role === "intern" || user?.role === "admin") {
       return <HeaderIntern />;
     } else if (user?.role === "company") {
       return <HeaderCompany />;

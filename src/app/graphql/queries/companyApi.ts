@@ -48,3 +48,28 @@ export const DELETE_COMPANY = gql`
     }
   }
 `;
+
+export const CREATE_COMPANY = gql`
+  mutation createCompany(
+    $name: String!
+    $email: String!
+    $password: String!
+    $photo: String
+    $description: String
+  ) {
+    createCompany(
+      name: $name
+      email: $email
+      password: $password
+      photo: $photo
+      description: $description
+    ) {
+      id
+      name
+      email
+      photo
+      description
+      role
+    }
+  }
+`;
