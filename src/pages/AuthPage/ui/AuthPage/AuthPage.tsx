@@ -33,13 +33,6 @@ export const AuthPage = () => {
 
   const { setUser } = useUser();
 
-  // * Api
-  // const { data, refetch } = useQuery(IS_AUTH, {
-  //   context: {
-  //     headers: createAuthHeaders(),
-  //   },
-  // });
-
   const [login] = useMutation(LOGIN);
 
   const formMethods = useForm<Inputs>({
@@ -52,45 +45,6 @@ export const AuthPage = () => {
 
   const { handleSubmit, register } = formMethods;
 
-  // console.log(data);
-  // const load = async () => {
-  //   const token = localStorage.getItem("token");
-
-  //   console.log(token);
-
-  //   console.log(data.isAuth.id);
-
-  //   if (token) {
-  //     if (setUser && data.isAuth.id) {
-  //       const { role, id } = data.isAuth;
-
-  //       console.log(role);
-
-  //       setUser({ role, id });
-  //     }
-  //   }
-  // };
-
-  // const onSubmit = async (data: Inputs) => {
-  //   const { email, password } = data;
-
-  //   // try {
-  //   const result = await login({
-  //     variables: {
-  //       email: email,
-  //       password: password,
-  //     },
-  //   });
-
-  //   const { login: loginData } = result.data;
-
-  //   if (loginData) {
-  //     localStorage.setItem("token", loginData.token);
-  //   }
-  //   load();
-  //   nav("/");
-  // };
-
   const onSubmit = async (data: Inputs) => {
     const { email, password } = data;
 
@@ -99,8 +53,6 @@ export const AuthPage = () => {
     });
 
     const { login: loginData } = result.data;
-
-    console.log(loginData);
 
     if (loginData) {
       localStorage.setItem("token", loginData.token);

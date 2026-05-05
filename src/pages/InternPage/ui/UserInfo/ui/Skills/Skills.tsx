@@ -7,10 +7,5 @@ interface Props {
 export const Skills = (props: Props) => {
   const { title } = props;
 
-  return (
-    <div className={s.skill}>
-      <p className={s.skill__title}>{title}</p>
-      <p>ffff</p>
-    </div>
-  );
+  return <li className={s.skill__title}>{title}</li>;
 };

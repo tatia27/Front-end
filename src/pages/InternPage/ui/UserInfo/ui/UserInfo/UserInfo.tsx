@@ -1,6 +1,5 @@
 import { useUser } from "../../../../../../app/context/userContext/userContext";
 import { Favorites } from "../../../Favorites/Favorites";
-import { Skills } from "../Skills/Skills";
 import { useQuery } from "@apollo/client";
 import { GET_INTERN } from "../../../../../../app/graphql/queries/internApi";
 import { LoadingSpinner } from "../../../../../../shared/ui/LoadingSpinner/LoadingSpinner";
@@ -37,21 +36,21 @@ export const UserInfo = () => {
         </div>
       </div>
 
-      {cv.hardSkills && (
-        <div className={s.skills}>
-          {cv.hardSkills.map((item: string) => (
-            <Skills key={item} title={item} />
-          ))}
-        </div>
-      )}
-      {cv.softSkills && (
-        <div className={s.skills}>
-          {cv.softSkills.map((item: string) => (
-            <Skills key={item} title={item} />
-          ))}
-        </div>
-      )}
+      <div className={s.skills}>
+        {cv.hardSkills && (
+          <div className={s.hardSkills}>
+            <p className={s.hardSkills__title}>Hard skills</p>
+            {cv.hardSkills}
+          </div>
+        )}
 
+        {cv.softSkills && (
+          <div className={s.hardSkills}>
+            <p className={s.hardSkills__title}>Soft skills</p>
+            {cv.softSkills}
+          </div>
+        )}
+      </div>
       <Favorites internId={userId} />
     </div>
   );

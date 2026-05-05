@@ -5,12 +5,16 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { useUser } from "../../app/context/userContext/userContext";
-import { UPDATE_COMPANY } from "../../app/graphql/queries/companyApi";
+import { UPDATE_INTERN } from "../../app/graphql/queries/internApi";
 import s from "./UpdateIntern.module.scss";
-
 interface Inputs {
-  name: string;
-  description: string;
+  age: number | undefined;
+  location: string;
+  levelOfEducation: string;
+  educationalInstitution: string;
+  specialization: string;
+  hardSkills: string;
+  softSkills: string;
 }
 
 export const UpdateIntern = () => {
@@ -20,35 +24,66 @@ export const UpdateIntern = () => {
   const userId = user?.id;
 
   // * Api
-  const [UpdateCompany] = useMutation(UPDATE_COMPANY);
+  const [UpdateIntern] = useMutation(UPDATE_INTERN);
 
   const formMethods = useForm<Inputs>({
     defaultValues: {
-      name: "",
-      description: "",
+      age: undefined,
+      location: "",
+      levelOfEducation: "",
+      educationalInstitution: "",
+      specialization: "",
+      hardSkills: "",
+      softSkills: "",
     },
   });
 
   const { handleSubmit, register } = formMethods;
 
   const onSubmit = async (data: Inputs) => {
-    const { name, description } = data;
+    const {
+      age,
+      location,
+      levelOfEducation,
+      educationalInstitution,
+      specialization,
+      hardSkills,
+      softSkills,
+    } = data;
 
     try {
-      if (!name || !description) {
+      if (
+        age === undefined ||
+        !location ||
+        !levelOfEducation ||
+        !educationalInstitution ||
+        !specialization ||
+        !hardSkills ||
+        !softSkills
+      ) {
         toast.info("Заполните все поля формы");
         return;
       }
 
       if (user?.id) {
-        await UpdateCompany({
+        await UpdateIntern({
           variables: {
-            ...data,
             id: userId,
+            input: {
+              cv: {
+                age: Number(age),
+                location,
+                levelOfEducation,
+                educationalInstitution,
+                specialization,
+                hardSkills,
+                softSkills,
+              },
+            },
           },
         });
 
-        nav(`/company`);
+        nav(`/intern`);
       }
     } catch (error) {
       console.log(error);
@@ -61,62 +96,54 @@ export const UpdateIntern = () => {
       <p className={s.title}>Обновить информацию</p>
       <FormProvider {...formMethods}>
         <form onSubmit={handleSubmit(onSubmit)} className={s.wrapper}>
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Описание"
             variant="outlined"
             {...register("name")}
-          />
-
+          /> */}
           <TextField
             id="outlined-basic"
             label="Возраст"
             variant="outlined"
-            {...register("name")}
+            {...register("age")}
           />
-
           <TextField
             id="outlined-basic"
             label="Местоположение"
             variant="outlined"
-            {...register("name")}
+            {...register("location")}
           />
-
           <TextField
             id="outlined-basic"
             label="Уровень образования"
             variant="outlined"
-            {...register("description")}
+            {...register("levelOfEducation")}
           />
-
           <TextField
             id="outlined-basic"
             label="Учебное заведение"
             variant="outlined"
-            {...register("description")}
+            {...register("educationalInstitution")}
           />
-
           <TextField
             id="outlined-basic"
             label="Специализация"
             variant="outlined"
-            {...register("description")}
+            {...register("specialization")}
           />
-
           <TextField
             id="outlined-basic"
             label="Hard skills"
             variant="outlined"
-            {...register("description")}
+            {...register("hardSkills")}
           />
-
           <TextField
             id="outlined-basic"
             label="Soft skills"
             variant="outlined"
-            {...register("description")}
+            {...register("softSkills")}
           />
-
           <CustomButton
             variant="contained"
             color="button"

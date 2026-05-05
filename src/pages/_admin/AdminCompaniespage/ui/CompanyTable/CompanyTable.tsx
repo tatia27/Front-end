@@ -19,9 +19,9 @@ export const CompanyTable = () => {
     return <LoadingSpinner />;
   }
 
-  const rows = data.companies.map((c) => ({
-    id: c.id,
-    name: c.name,
+  const rows = data.companies.map((item) => ({
+    id: item.id,
+    name: item.name,
     status: "Активна",
     // date: new Date(c.createdAt).toLocaleDateString(),
     // interns: c.internshipsCount,
@@ -29,7 +29,7 @@ export const CompanyTable = () => {
 
   const handleDelete = async (id: string) => {
     await deleteCompany({ variables: { id } });
-    refetch(); // обновить таблицу
+    refetch();
   };
 
   const handleMessage = (id: string) => {
@@ -58,9 +58,6 @@ export const CompanyTable = () => {
               <td>
                 <span className={s.status}>{item.status}</span>
               </td>
-
-              {/* <td>{item.date}</td>
-              <td>{item.interns}</td> */}
 
               <td className={s.actions}>
                 <button onClick={() => handleDelete(item.id)}>Удалить</button>

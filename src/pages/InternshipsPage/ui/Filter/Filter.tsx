@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { toast } from "react-toastify";
 import type { Internships } from "../InternshipsPage/InternshipsPage";
 import { Checkbox } from "@mui/material";
 import {
@@ -8,9 +7,9 @@ import {
   TYPE_OF_INTERNSHIP,
   WORK_SCHEDULE,
 } from "./consts/consts";
-import s from "./Filter.module.scss";
 import { useQuery } from "@apollo/client";
 import { GET_FILTERED_INTERNSHIPS } from "../../../../app/graphql/queries/internshipApi";
+import s from "./Filter.module.scss";
 
 interface Filter {
   schedule: string[];
@@ -40,6 +39,7 @@ export const Filter = (props: SearchFilterProps) => {
   const [checked, setChecked] = useState(false);
 
   console.log(checked);
+
   // const { data } = useQuery(GET_FILTERED_INTERNSHIPS, {
   //   variables: {
   //     page: filter.currentPage,
@@ -62,7 +62,7 @@ export const Filter = (props: SearchFilterProps) => {
       setInternships(data?.getFilteredInternships.internships);
       setTotalDocuments(data?.getFilteredInternships.numberOfPages);
     }
-  }, [data]);
+  }, [data, setInternships, setTotalDocuments]);
 
   const resetFilter = () => {
     setFilter({

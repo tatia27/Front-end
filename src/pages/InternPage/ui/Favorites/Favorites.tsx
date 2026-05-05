@@ -1,5 +1,5 @@
 import { Carousel } from "primereact/carousel";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useToTopPage } from "../../../../shared/hooks/useToTopPage";
 import type { Internships } from "../../../InternshipsPage/ui/InternshipsPage/InternshipsPage";
@@ -25,9 +25,11 @@ export const Favorites = (props: Props) => {
     },
   });
 
-  if (data) {
-    setFavorites(data.getFavoritesInternships);
-  }
+  useEffect(() => {
+    if (data?.getFavoritesInternships) {
+      setFavorites(data.getFavoritesInternships);
+    }
+  }, [data, setFavorites]);
 
   const itemTemplate = (item: Internships) => (
     <Internship key={item.id} {...item} />

@@ -72,3 +72,27 @@ export const CREATE_INTERN = gql`
     }
   }
 `;
+
+export const UPDATE_INTERN = gql`
+  mutation updateIntern($id: ID!, $input: UpdateInternInput) {
+    updateIntern(id: $id, input: $input) {
+      id
+      firstName
+      middleName
+      lastName
+      email
+      role
+      description
+      favorites
+      cv {
+        age
+        location
+        levelOfEducation
+        educationalInstitution
+        specialization
+        hardSkills
+        softSkills
+      }
+    }
+  }
+`;

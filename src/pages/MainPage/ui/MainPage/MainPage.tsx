@@ -6,7 +6,9 @@ import { CustomButton } from "../../../../ui/_buttons/ContainedButton/ContainedB
 import { RunningLine } from "../RunningLine/ui/RunningLine/RunningLine";
 import { LineTabs } from "../../../../ui/LineTabs/LineTabs";
 import { CompanySearch } from "../CompanySearch/CompanySearch";
+import { useUser } from "../../../../app/context/userContext/userContext";
 import s from "./MainPage.module.scss";
+import { RecommendedInternships } from "../../../../features/internships/RecommendedInternships/RecommendedInternships";
 
 const TABS = [
   {
@@ -21,6 +23,8 @@ const TABS = [
 
 export const MainPage = () => {
   const nav = useNavigate();
+
+  const { user } = useUser();
 
   const [activeTab, setActiveTab] = useState("intern");
 
@@ -56,7 +60,13 @@ export const MainPage = () => {
         setActiveTabId={setActiveTab}
       />
 
-      {activeTab === "intern" && <PopularInternships />}
+      {activeTab === "intern" && user?.role === "admin" && (
+        <RecommendedInternships />
+      )}
+
+      {activeTab === "intern" && user?.role !== "admin" && (
+        <PopularInternships />
+      )}
 
       {activeTab === "company" && <CompanySearch />}
     </div>

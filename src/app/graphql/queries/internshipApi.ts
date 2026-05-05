@@ -90,6 +90,26 @@ export const GET_INTERNSHIP = gql`
   }
 `;
 
+export const GET_RECOMMENDED_INTERNSHIPS = gql`
+  query GetRecommendedInternships($internId: ID!) {
+    getRecommendedInternships(internId: $internId, limit: 3) {
+      id
+      title
+      company
+      focusOfInternship
+      salary
+      tags
+      isActive
+      schedule
+      typeOfEmployment
+      durationOfInternship
+      skills
+      conditions
+      companyId
+    }
+  }
+`;
+
 export const CREATE_INTERNSHIP = gql`
   mutation CreateInternship(
     $title: String!

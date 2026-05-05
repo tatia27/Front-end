@@ -20,20 +20,13 @@ import { UpdateIntern } from "../../pages/UpdateIntern/UpdateIntern";
 import { Participants } from "../../pages/Participants/Participants";
 import { CompanyContextProvider } from "../context/companyContext/companyContextProvider";
 import { AdminPage } from "../../pages/_admin/AdminPage/ui/AdminPage/AdminPage";
-import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
 import { AdminCompaniesPage } from "../../pages/_admin/AdminCompaniespage/ui/AdminCompaniesPage/AdminCompaniesPage";
 import { AdminInternsPage } from "../../pages/_admin/AdminInternsPage/ui/AdminInternsPage/AdminInternsPage";
+import s from "../../../src/pages/MainPage/ui/MainPage/MainPage.module.scss";
 
 export const AppRouter = () => {
   const { renderHeader } = useHeader();
   const { renderFooter } = useFooter();
-
-  // const { setUser } = useUser();
-
-  // const client = useApolloClient();
-
-  // const { logoutApps } = useLogout();
-  // logoutApps();
 
   useAuth();
 
