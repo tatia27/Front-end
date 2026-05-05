@@ -1,0 +1,12 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 5fr;
+  gap: 22px;
+  padding: 54px 0;
+  cursor: pointer;
+}
+
+.internships {
+  display: grid;
+  gap: 30px;
+}

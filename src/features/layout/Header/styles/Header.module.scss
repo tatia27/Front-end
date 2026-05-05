@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 19px 0;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__link {
+    color: var(--color-title);
+    text-decoration: none;
+
+    &_active {
+      color: var(--primary-color);
+      cursor: default;
+    }
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.profile {
+  cursor: pointer;
+}

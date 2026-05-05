@@ -1,0 +1,20 @@
+.wrapper {
+  margin: 32px 0 50px 0;
+  display: grid;
+  gap: 18px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.internships {
+  display: grid;
+  grid-template-columns: 0.8fr;
+  gap: 30px;
+
+  &__info {
+    margin-top: 1rem;
+  }
+}

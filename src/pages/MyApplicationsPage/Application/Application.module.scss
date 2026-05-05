@@ -1,0 +1,77 @@
+@use "../../../styles/mixins.module.scss";
+
+.internship {
+  @include mixins.card;
+
+  padding: 20px 33px;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__location {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 18px;
+
+    h4 {
+      font-size: 30px;
+      text-transform: uppercase;
+      color: var(--color-title);
+      margin-bottom: 5px;
+    }
+
+    h5 {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 16px;
+    margin-bottom: 24px;
+
+    &__item {
+      background-color: #ebf0f3;
+      display: flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 2px;
+
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.favorite {
+  cursor: pointer;
+}
+
+.internship__timeSalary {
+  display: flex;
+  column-gap: 46px;
+  margin-bottom: 25px;
+
+  &__title {
+    margin-bottom: 5px;
+  }
+}

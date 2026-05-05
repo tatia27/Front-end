@@ -1,0 +1,15 @@
+.info {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 0.5rem;
+
+  &__small {
+    background-color: #edf5ff;
+    color: var(--text-color-dark);
+    font-size: 12px;
+    border-radius: 30px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+  }
+}

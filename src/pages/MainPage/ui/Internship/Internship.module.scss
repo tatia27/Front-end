@@ -1,0 +1,81 @@
+@use "../../../../styles/mixins.module";
+
+.card {
+  @include mixins.card;
+
+  display: grid;
+  gap: 1.5rem;
+  padding: 36px;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__logo {
+    display: flex;
+    column-gap: 0.5rem;
+  }
+
+  &__company {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    column-gap: 10px;
+
+    h4 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-title);
+}
+
+.location {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.title {
+  color: var(--color-title);
+  font-weight: 600;
+}
+
+.cardMiddle {
+  display: grid;
+  gap: 1rem;
+
+  &__title {
+    font-size: 18px;
+    color: var(--text-color-dark);
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 0.5rem;
+
+  &__small {
+    background-color: #edf5ff;
+    color: var(--text-color-dark);
+    font-size: 12px;
+    border-radius: 30px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}

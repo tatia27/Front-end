@@ -1,0 +1,35 @@
+.wrapper {
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111;
+  }
+
+  &__card {
+    background: #f6f7f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 140px;
+    border: none;
+    resize: none;
+    outline: none;
+
+    font-size: 14px;
+    color: #333;
+    background: transparent;
+
+    &::placeholder {
+      color: #9aa0a6;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.info {
+  margin-bottom: 30px;
+  padding: 20px 45px;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+
+  &__title {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  &__block {
+    display: grid;
+    gap: 10px;
+  }
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}

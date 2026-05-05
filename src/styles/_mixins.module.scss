@@ -1,0 +1,18 @@
+$content-Padding: 2rem;
+
+@mixin container {
+  margin: 0 auto;
+  width: calc(1400px - 2 * $content-Padding);
+}
+
+@mixin cardShadow {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+@mixin card {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}

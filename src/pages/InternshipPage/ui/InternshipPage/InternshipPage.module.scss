@@ -1,0 +1,29 @@
+.card {
+  display: grid;
+  gap: 1.5rem;
+  background-color: #fff;
+  border: 1px solid var(--text-color-dark);
+  border-radius: 30px;
+  padding: 2rem;
+  margin: 64px 130px;
+
+  color: var(--text-color-dark);
+
+  &__top {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__middle {
+    display: flex;
+    gap: 3rem;
+  }
+}
+
+.title {
+  font-size: 32px;
+}
+
+.info {
+  font-size: 22px;
+}

@@ -1,0 +1,21 @@
+@mixin body-base {
+  font-family: Lato, Arial, serif;
+  font-weight: 400;
+  color: var(--color-black-4);
+}
+
+// * Body
+@mixin font-body-1 {
+  // - Large-medium buttons
+  @include body-base;
+
+  font-size: 1rem;
+  line-height: 1.45rem;
+}
+
+@mixin font-body-2 {
+  @include body-base;
+
+  font-size: 0.875rem;
+  line-height: 1.225rem;
+}

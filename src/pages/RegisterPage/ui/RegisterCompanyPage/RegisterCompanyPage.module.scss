@@ -1,0 +1,31 @@
+@use "../../../../styles/mixins.module";
+
+.container {
+  // @include mixins.container;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  @include mixins.card;
+  text-align: center;
+
+  padding: 45px 95px;
+  margin: 70px 0;
+
+  &__title {
+    font-size: 22px;
+    margin-bottom: 35px;
+  }
+}
+
+.inputs {
+  width: 100%;
+  display: grid;
+  gap: 35px;
+  margin-bottom: 28px;
+
+  .inputs > * {
+    flex: 1;
+  }
+}

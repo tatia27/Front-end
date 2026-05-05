@@ -1,0 +1,10 @@
+.skill {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  padding: 15px 20px;
+
+  &__title {
+    margin-bottom: 14px;
+  }
+}

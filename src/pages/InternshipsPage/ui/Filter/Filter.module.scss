@@ -1,0 +1,27 @@
+@use "../../../../styles/mixins.module";
+
+.wrapper {
+  @include mixins.card;
+
+  display: grid;
+  padding: 25px;
+  gap: 30px;
+  height: 1050px;
+}
+
+.title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.reset {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}

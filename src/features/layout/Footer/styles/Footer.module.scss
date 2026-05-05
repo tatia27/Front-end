@@ -1,0 +1,30 @@
+.footer {
+  padding: 36px 136px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+
+  &__left {
+    display: flex;
+    gap: 87px;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #fff;
+}
+
+.links {
+  ul li {
+    list-style-type: none;
+  }
+
+  ul li a {
+    color: var(--text-color);
+    font-size: 14px;
+    text-decoration: none;
+  }
+}

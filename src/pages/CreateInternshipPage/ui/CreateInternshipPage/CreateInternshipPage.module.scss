@@ -1,0 +1,32 @@
+.title {
+  font-size: 30px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.wrapper {
+  display: grid;
+  gap: 25px;
+  padding: 33px 100px;
+}
+
+.salary {
+  display: grid;
+  grid-template-columns: 0.4fr 5fr;
+  gap: 27px;
+}
+
+.columns {
+  display: flex;
+  gap: 122px;
+
+  &__item {
+    display: grid;
+    gap: 8px;
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}

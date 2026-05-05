@@ -1,0 +1,19 @@
+@use "../../../../../../styles/mixins.module";
+
+.wrapper {
+  @include mixins.container;
+  display: grid;
+
+  &__title {
+    margin: 150px 0 48px 0;
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 150px;
+}

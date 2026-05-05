@@ -1,0 +1,136 @@
+@use "./shared//styles/typography.scss";
+
+@font-face {
+  font-family: Lato;
+  font-display: swap;
+  src: url("/fonts/Lato-Medium.ttf") format("truetype");
+}
+
+:root {
+  // * Colors
+  --text-color-dark: #35373b;
+  --text: #80878d;
+  --primary-color: #3794fe;
+  --primary-color-hover: #28dac2;
+  --text-color: #ffffff;
+  --background-color: #eff1f3;
+  --color-title: #363232;
+  --box-shadow: 0 2px 3px 0 rgba(205, 205, 205, 0.29);
+  --border-items: 4px;
+
+  // * Shadows
+  --shadow-default:
+    0px 0px 8px 0px rgb(121 133 164 / 10%),
+    0px 0px 2px 0px rgb(121 133 164 / 40%);
+  --shadow-hover:
+    0px 0px 20px 0px rgb(121 133 164 / 15%),
+    0px 0px 4px 0px rgb(121 133 164 / 40%);
+  --shadow-active: 0px 0px 15px 1px rgb(67 81 150 / 40%);
+  --shadow-modals: 0px 0px 35px 3px rgb(70 79 126 / 50%);
+  --shadow-dropdown:
+    0px 10px 20px 0px rgb(121 133 164 / 15%),
+    0px 0px 2px 0px rgb(121 133 164 / 40%);
+
+  // * Status
+  --border-focus: #e8b733;
+  --error-dark: #e4342c;
+  --error-light: #fde9ec;
+  --warning-dark: #ffba00;
+  --warning-light: #fcfce7;
+  --success-dark: #00af1c;
+  --success-light: #eefeea;
+
+  // * z-index
+  --z-index-input: 100;
+  --z-index-header: 200;
+  --z-index-nav: 300;
+  --z-index-modal: 400;
+  --z-index-floating: 500;
+  --z-index-notification: 600;
+  --z-index-tooltip: 700;
+
+  // * layout
+  --header-height: 6.1rem;
+  --card-border-radius: 0.5rem;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  background-color: var(--color-bg-default);
+}
+
+body {
+  @include typography.font-body-2;
+
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+::-webkit-scrollbar:vertical {
+  background-color: var(--color-bg-hover-75);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary-1);
+  border-radius: 0.75rem;
+}
+
+// h1 {
+//   @include typography.font-headline-1;
+// }
+
+// h2 {
+//   @include typography.font-headline-2;
+// }
+
+// h3 {
+//   @include typography.font-headline-3;
+// }
+
+// h4 {
+//   @include typography.font-headline-4;
+// }
+
+// h5 {
+//   @include typography.font-headline-5;
+// }
+
+// h6 {
+//   @include typography.font-headline-6;
+// }
+
+strong {
+  font-weight: 800;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+button {
+  cursor: pointer;
+
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+
+  background: none;
+  border: none;
+  outline: inherit;
+}

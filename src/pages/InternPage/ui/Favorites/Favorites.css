@@ -1,0 +1,28 @@
+.favorites {
+  width: 1000px;
+  padding-bottom: 50px;
+
+  &__title {
+    font-size: 22px;
+
+    margin: 0 0 20px 15px;
+  }
+}
+
+.p-carousel {
+  display: flex;
+  flex-direction: column;
+  column-gap: 40px;
+}
+
+.p-carousel-items-content {
+  padding: 10px 0 0 5px;
+}
+
+.p-carousel-item {
+  margin-left: 5px;
+}
+
+.p-carousel-item {
+  margin-left: 5px;
+}

@@ -1,0 +1,8 @@
+.info {
+  margin-top: 28px;
+
+  &__text {
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+}

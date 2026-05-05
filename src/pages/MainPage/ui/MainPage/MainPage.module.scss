@@ -1,0 +1,29 @@
+@use "../../../../styles/mixins.module";
+
+.wrapper {
+  @include mixins.container;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(#beecff, #ffffff);
+  padding: 110px;
+}
+
+.title {
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 58px;
+  color: var(--text-color-dark);
+  text-transform: uppercase;
+}
+
+.info {
+  margin-bottom: 32px;
+  color: var(--text-color-dark);
+  font-size: 20px;
+}
